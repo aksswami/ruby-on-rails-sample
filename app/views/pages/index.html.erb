@@ -1,0 +1,37 @@
+<% if !flash[:notice].blank? %>
+	<div class="notice">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
+ <%= link_to("<< Back to List", {:controller => 'subjects', :action => 'index'}, :class => 'back-link') %>
+
+
+<div class="page index">
+	<h2>Pages for Subject: <%= @subject.name %></h2>
+
+	<%= link_to("Add New Page", {:action => 'new', :subject_id => @subject.id}, :class => 'action new') %>
+
+	<table class="listing" summary="Pages list">
+		<tr class="header" >
+			<th>&nbsp;</th>
+			<th>Page</th>
+			<th>Visible</th>
+			<th>Sections</th>
+			<th>Actions</th>
+		</tr>
+		<% @pages.each do |page| %>
+		<tr>
+			<td><%= page.position %></td>
+			<td><%= page.name %></td>
+			<td class="center"> <%= page.visible ? "Yes" :"No" %></td>
+			<td class="center"> <%= page.sections.size %></td>
+			<td class="action"> 
+				<%= link_to("Show", {:action => 'show', :id => page.id}, :class => "action show") %>
+				<%= link_to("Edit", {:action => 'edit', :id => page.id}, :class => "action edit") %>
+				<%= link_to("Delete", {:action => 'delete', :id => page.id}, :class => "action delete") %>
+			</td>
+		</tr>	
+		<% end %>
+	</table>
+	</div>
