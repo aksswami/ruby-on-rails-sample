@@ -4,7 +4,7 @@
 	</div>
 <% end %>
 
- <%= link_to("<< Back to List", {:controller => 'subjects', :action => 'index'}, :class => 'back-link') %>
+ <%= link_to("<< Back to Subjects", {:controller => 'subjects', :action => 'index'}, :class => 'back-link') %>
 
 
 <div class="page index">
@@ -25,7 +25,7 @@
 			<td><%= page.position %></td>
 			<td><%= page.name %></td>
 			<td class="center"> <%= page.visible ? "Yes" :"No" %></td>
-			<td class="center"> <%= page.sections.size %></td>
+			<td class="center"> <%= link_to(page.sections.size, {:controller => 'sections', :action => 'index', :page_id => page.id}, :class => "action index") %></td>
 			<td class="action"> 
 				<%= link_to("Show", {:action => 'show', :id => page.id}, :class => "action show") %>
 				<%= link_to("Edit", {:action => 'edit', :id => page.id}, :class => "action edit") %>

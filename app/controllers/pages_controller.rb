@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   layout false
 
   def index
-    @subject = Subject.find(params[:id])
+    @subject = Subject.find(params[:subject_id])
     @pages = @subject.pages.sorted 
 
   end
@@ -23,7 +23,7 @@ class PagesController < ApplicationController
     subject.pages << page
     if page.save
       flash[:notice] = "Page '#{page.name}' saved successfully"
-      redirect_to(:controller => 'pages', :action => 'index', :id => subject.id)
+      redirect_to(:controller => 'pages', :action => 'index', :subject_id => subject.id)
     else
       flash[:notice] = "Page not saved."
       render('new')
@@ -38,7 +38,7 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     if @page.update_attributes(page_params)
       flash[:notice] = "Page '#{@page.name}' updated successfully"
-      redirect_to(:controller => 'pages', :action => 'index', :id => @page.subject_id)
+      redirect_to(:controller => 'pages', :action => 'index', :subject_id => @page.subject_id)
     else
       flash[:notice] = "Page not updated."
       render('edit')
@@ -52,7 +52,7 @@ class PagesController < ApplicationController
   def destroy
     page = Page.find(params[:id]).destroy
     flash[:notice] = "Page '#{page.name}' destroyed successfully"
-    redirect_to(:action => 'index', :id => page.subject_id)
+    redirect_to(:action => 'index', :subject_id => page.subject_id)
     
   end
 

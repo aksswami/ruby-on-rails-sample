@@ -1,10 +1,10 @@
- <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+ <%= link_to("<< Back to Subjects", {:action => 'index'}, :class => 'back-link') %>
 
 <div class="subjects delete">
 	<h2>Delete Subject</h2>
 
 	<%= form_for(:subject, :url => {:action => 'destroy', :id => @subject.id}) do |f| %>
-	
+
 	<p> Are you sure you want to permanently delet this subject? </p>
 
 	<p class="reference-name"><%= @subject.name %></p>
