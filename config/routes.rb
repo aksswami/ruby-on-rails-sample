@@ -1,16 +1,5 @@
 Rails.application.routes.draw do
 
-
-  get 'sections/index'
-
-  get 'sections/show'
-
-  get 'sections/new'
-
-  get 'sections/edit'
-
-  get 'sections/delete'
-
   #get 'demo/index'
   root "demo#index"
   match ':controller(/:action(/:id))', :via => [:get, :post]

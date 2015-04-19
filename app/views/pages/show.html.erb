@@ -1,10 +1,4 @@
-<% if !flash[:notice].blank? %>
-	<div class="notice">
-		<%= flash[:notice] %>
-	</div>
-<% end %>
-
-
+<% @page_title = "Page" %>
 <%= link_to("<< Back to Pages", {:action => 'index', :subject_id => @page.subject_id}, :class => 'back-link') %>
 
 <div class="pages show">
@@ -18,6 +12,10 @@
 		<tr>
 			<th>Position</th>
 			<td><%= @page.position %></td>
+		</tr>
+		<tr>
+			<th>Permalink</th>
+			<td><%= @page.permalink %></td>
 		</tr>
 		<tr>
 			<th>Visible</th>

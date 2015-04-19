@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   
-  layout false
+  layout "admin"
 
   def index
     @subject = Subject.find(params[:subject_id])
@@ -59,7 +59,7 @@ class PagesController < ApplicationController
 
   private
    def page_params
-      params.require(:page).permit(:name, :position, :visible)
+      params.require(:page).permit(:name, :permalink, :position, :visible)
    end
 
 

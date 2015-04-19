@@ -1,4 +1,5 @@
- <%= link_to("<< Back to Pages", {:action => 'index', :subject_id => @page.subject_id}, :class => 'back-link') %>
+<% @page_title = "Page" %>
+<%= link_to("<< Back to Pages", {:action => 'index', :subject_id => @page.subject_id}, :class => 'back-link') %>
 
 <div class="page delete">
 	<h2>Delete Page</h2>

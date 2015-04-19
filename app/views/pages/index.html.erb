@@ -1,10 +1,5 @@
-<% if !flash[:notice].blank? %>
-	<div class="notice">
-		<%= flash[:notice] %>
-	</div>
-<% end %>
-
- <%= link_to("<< Back to Subjects", {:controller => 'subjects', :action => 'index'}, :class => 'back-link') %>
+<% @page_title = "Pages" %>
+<%= link_to("<< Back to Subjects", {:controller => 'subjects', :action => 'index'}, :class => 'back-link') %>
 
 
 <div class="page index">
@@ -16,6 +11,7 @@
 		<tr class="header" >
 			<th>&nbsp;</th>
 			<th>Page</th>
+			<th>Permalink</th>
 			<th>Visible</th>
 			<th>Sections</th>
 			<th>Actions</th>
@@ -24,7 +20,8 @@
 		<tr>
 			<td><%= page.position %></td>
 			<td><%= page.name %></td>
-			<td class="center"> <%= page.visible ? "Yes" :"No" %></td>
+			<td><%= page.permalink %></td>
+			<td class="center"> <%= status_tag(page.visible) %></td>
 			<td class="center"> <%= link_to(page.sections.size, {:controller => 'sections', :action => 'index', :page_id => page.id}, :class => "action index") %></td>
 			<td class="action"> 
 				<%= link_to("Show", {:action => 'show', :id => page.id}, :class => "action show") %>

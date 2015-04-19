@@ -1,6 +1,6 @@
 class SectionsController < ApplicationController
 
-  layout false 
+  layout "admin" 
 
   def index
     @page = Page.find(params[:page_id])
